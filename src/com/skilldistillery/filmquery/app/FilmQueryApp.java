@@ -1,17 +1,12 @@
 package com.skilldistillery.filmquery.app;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import com.skilldistillery.filmquery.database.DatabaseAccessor;
 import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
-import com.skilldistillery.filmquery.entities.Actor;
 import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
@@ -71,14 +66,14 @@ public class FilmQueryApp {
 
 	private Film findFilmById(Scanner input) {
 		Film result = null;
-		System.out.println("\nEnter the ID of your select film");
+		System.out.print("\nEnter the ID of your select film: ");
 		int filmID = input.nextInt();
 		input.nextLine();
 
-		if (filmID < 1 || filmID > 1000) {
-			System.err.println("\nFilm ID " + filmID + " not found.");
+		result = db.findFilmById(filmID);
+		if (result == null) {
+			System.out.println("\nFilm ID " + filmID + " not found. Try again.");
 		} else {
-			result = db.findFilmById(filmID);
 			printFilmDetails(result);
 		}
 		return result;
