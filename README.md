@@ -1,5 +1,13 @@
-#FilmQueryProject
+# Film Query Project
 
-##Description
+# Description
 
-##Technologies used
+
+
+
+# Technologies Used
+Eclipse, MySQL, Git, Terminal
+
+# What I learned
+
+
